@@ -3,8 +3,16 @@
 import { useState } from "react";
 import { Search } from "lucide-react";
 
+type WeatherData = {
+  id: string;
+  city: string;
+  country: string;
+  currentWeather: string;
+  feelsLike: number;
+};
+
 type SearchBarProps = {
-  onSearch: (data: any) => void;
+  onSearch: (data: WeatherData) => void;
 };
 
 export const SearchBar = ({ onSearch }: SearchBarProps) => {
