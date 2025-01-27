@@ -6,7 +6,7 @@ export const Headers = () => {
           <img
             src="/cycle-logo.svg"
             alt="Weather App Logo"
-            className="h-8 sm:h-7 mt-2"
+            className="h-6 sm:h-5 mt-2"
           />
         </div>
       </div>
