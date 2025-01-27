@@ -40,7 +40,7 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for a city..."
+          placeholder="Which city are you looking for?"
           className="w-full p-3 sm:p-4 pr-12 rounded-full bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-[#FF5E71] text-sm sm:text-base"
         />
         <button
