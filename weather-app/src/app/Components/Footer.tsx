@@ -3,7 +3,7 @@ export const Footer = () => {
   return (
     <footer className="bg-[#FF5E71] p-8 backdrop-blur-md py-10">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-[#FFF8F0] font-semibold">
+        <div className="text-[#FFF8F0]">
           &copy; {new Date().getFullYear()} VictorRoe
         </div>
         <div className="flex space-x-4">

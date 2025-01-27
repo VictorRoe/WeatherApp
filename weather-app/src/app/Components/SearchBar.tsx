@@ -40,7 +40,7 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for a city..."
+          placeholder="Which city are you looking for?"
           className="w-full p-3 sm:p-4 pr-12 rounded-full bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-[#FF5E71] text-sm sm:text-base"
         />
         <button
@@ -49,6 +49,19 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
         >
           <Search className="text-white w-5 h-5 sm:w-6 sm:h-6" />
         </button>
+      </div>
+      {/* API Sponsor */}
+      <div className="text-[#FFF8F0] text-xs text-center py-2 text-opacity-60">
+        Powered by{" "}
+        <a
+          href="https://www.weatherapi.com/"
+          title="Free Weather API"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#FFF8F0]/80"
+        >
+          WeatherAPI.com
+        </a>
       </div>
     </form>
   );
