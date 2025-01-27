@@ -50,6 +50,19 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
           <Search className="text-white w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </div>
+      {/* API Sponsor */}
+      <div className="text-[#FFF8F0] text-xs text-center py-2 text-opacity-60">
+        Powered by{" "}
+        <a
+          href="https://www.weatherapi.com/"
+          title="Free Weather API"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-[#FFF8F0]/80"
+        >
+          WeatherAPI.com
+        </a>
+      </div>
     </form>
   );
 };
