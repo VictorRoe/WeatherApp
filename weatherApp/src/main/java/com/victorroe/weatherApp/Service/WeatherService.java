@@ -8,7 +8,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Service
-@AllArgsConstructor
 public class WeatherService {
 
     private final WebClient webClient;
