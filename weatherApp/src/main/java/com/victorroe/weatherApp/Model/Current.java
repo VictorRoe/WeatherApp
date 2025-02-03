@@ -14,24 +14,24 @@ public class Current {
     private Double tempC;
     @JsonProperty("temp_f")
     private Double tempF;
-    private Integer isDay;
-    private Double windMph;
+//    private Integer isDay;
+//    private Double windMph;
     @JsonProperty("wind_kph")
     private Double windKph;
-    private Integer windDegree;
-    private String windDir;
-    private Double pressureMb;
-    private Double pressureIn;
-    private Double precipMm;
-    private Double precipIn;
-    private Integer humidity;
-    private Integer cloud;
+//    private Integer windDegree;
+//    private String windDir;
+//    private Double pressureMb;
+//    private Double pressureIn;
+//    private Double precipMm;
+//    private Double precipIn;
+//    private Integer humidity;
+//    private Integer cloud;
     @JsonProperty("feelslike_c")
     private Double feelslikeC;
     @JsonProperty("feelslike_f")
     private Double feelslikeF;
-    private Double windchillC;
-    private Double windchillF;
+//    private Double windchillC;
+//    private Double windchillF;
     @JsonProperty("heatindex_c")
     private Double heatindexC;
     @JsonProperty("heatindex_f")
@@ -40,11 +40,11 @@ public class Current {
     private Double dewpointC;
     @JsonProperty("dewpoint_f")
     private Double dewpointF;
-    private Double visKm;
-    private Double visMiles;
-    private Double uv;
-    private Double gustMph;
-    private Double gustKph;
+//    private Double visKm;
+//    private Double visMiles;
+//    private Double uv;
+//    private Double gustMph;
+//    private Double gustKph;
     @JsonProperty("condition")
     private Condition condition;
 }

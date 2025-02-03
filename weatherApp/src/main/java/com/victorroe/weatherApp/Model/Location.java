@@ -12,11 +12,11 @@ public class Location {
     private String region;
     @JsonProperty("country")
     private String country;
-    private Double lat;
-    private Double lon;
+//    private Double lat;
+//    private Double lon;
     @JsonProperty("tz_id")
     private String tzId;
-    private Long localtimeEpoch;
+//    private Long localtimeEpoch;
     @JsonProperty("localtime")
     private String localtime;
 
