@@ -1,0 +1,8 @@
+com\victorroe\weatherApp\Service\WeatherService.class
+com\victorroe\weatherApp\Controller\CurrentController.class
+com\victorroe\weatherApp\Model\Current.class
+com\victorroe\weatherApp\WeatherAppApplication.class
+com\victorroe\weatherApp\Model\Location.class
+com\victorroe\weatherApp\Model\Condition.class
+com\victorroe\weatherApp\Config\WebClientConfig.class
+com\victorroe\weatherApp\DTO\CurrentDTO.class
