@@ -1,12 +1,4 @@
-FROM ubuntu:latest as BUILD
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
-COPY . .
-RUN clean package
-
-# Etapa final
-FROM openjdk:17-slim
-WORKDIR /app
-COPY --from=build /app/target/*.jar weather-app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app/weather-app.jar"]
+FROM amazoncorretto:17-alpine-jdk
+RUN mvn clean package -DskipTests
+COPY target/weatherApp-0.0.1-SNAPSHOT.jar /api-v1.jar
+ENTRYPOINT ["java" , "-jar", "/api-v1.jar"]
