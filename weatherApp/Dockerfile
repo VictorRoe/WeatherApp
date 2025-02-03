@@ -1,13 +1,12 @@
-# Etapa de construcción
-FROM maven:3.8.4-openjdk-17-slim AS build
-WORKDIR /app
+FROM ubuntu:latest as BUILD
+RUN apt-get update
+RUN apt-get install openjdk-openjdk -y
 COPY . .
-RUN mvn clean package -DskipTests
+RUN clean package
 
 # Etapa final
 FROM openjdk:17-slim
 WORKDIR /app
 COPY --from=build /app/target/*.jar weather-app.jar
-
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/app/weather-app.jar"]
