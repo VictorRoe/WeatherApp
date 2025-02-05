@@ -3,9 +3,11 @@ import { Headers } from "../Components/Headers";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="flex  flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#1E1E1E] to-[#FF5E71] from-20% ">
         <Headers />
-        <div>{children}</div>
+        <main className="flex-grow flex items-center justify-center">
+          {children}
+        </main>
       </div>
       <Footer />
     </>
