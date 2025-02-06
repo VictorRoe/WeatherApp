@@ -14,7 +14,7 @@ public class CorsConfig {
     public CorsWebFilter corsWebFilter(){
 
         CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.setAllowedOrigins(List.of("http://localhost:3000"));
+        corsConfig.setAllowedOrigins(List.of("http://localhost:3000", "https://weather-f565030e3-victor-jose-rangel-romeros-projects.vercel.app", "https://weather.victorroe.com"));
         corsConfig.setMaxAge(3600L);
         corsConfig.setAllowedMethods(List.of("GET","POST","PUT","DELETE"));
         corsConfig.setAllowedHeaders(List.of("Content-Type","Authorization"));
