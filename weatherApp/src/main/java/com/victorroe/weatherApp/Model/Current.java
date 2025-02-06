@@ -24,8 +24,10 @@ public class Current {
 //    private Double pressureIn;
 //    private Double precipMm;
 //    private Double precipIn;
-//    private Integer humidity;
-//    private Integer cloud;
+    @JsonProperty("humidity")
+    private Integer humidity;
+    @JsonProperty("cloud")
+    private Integer cloud;
     @JsonProperty("feelslike_c")
     private Double feelslikeC;
     @JsonProperty("feelslike_f")
