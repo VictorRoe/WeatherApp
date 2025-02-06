@@ -4,7 +4,7 @@ import { Headers } from "./Components/Headers";
 import { Footer } from "./Components/Footer";
 import { SearchBar } from "./Components/SearchBar";
 import { HistoryList } from "./Components/HistoryList";
-import { SplitText } from "./Components/Animations/SplitText";
+import { SplitText } from "./Animations/SplitText";
 import { motion } from "framer-motion";
 type WeatherData = {
   id: string;

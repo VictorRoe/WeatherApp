@@ -41,7 +41,8 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Which city are you looking for?"
-          className="w-full p-3 sm:p-4 pr-12 rounded-full bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-[#FF5E71] text-sm sm:text-base"
+          className="w-full p-3 sm:p-4 pr-12 rounded-full bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-70
+           focus:outline-none focus:ring-1 focus:ring-[#FF5E71] transition-all duration-200 ease-out transform text-sm sm:text-base"
         />
         <button
           type="submit"
