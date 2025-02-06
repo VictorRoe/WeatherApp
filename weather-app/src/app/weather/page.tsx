@@ -97,7 +97,7 @@ export default function Weather() {
         {/* Temperature */}
         <div className="text-center mb-6">
           <h2 className="text-6xl sm:text-7xl font-light text-white">
-            {temp_c} °C
+            {temp_c}°C
           </h2>
           <div className="flex justify-center gap-4 mt-2 text-sm sm:text-base text-white">
             <span>High: 97°F</span>
