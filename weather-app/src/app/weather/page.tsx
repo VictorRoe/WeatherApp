@@ -33,7 +33,7 @@ export default function Weather() {
     const fetchWeather = async () => {
       try {
         const res = await fetch(
-          "http://localhost:8080/weather?query=La-Ceja-Antioquia"
+          "https://weatherapp-v9yt.onrender.com/weather?query=La-Ceja-Antioquia"
         );
         const data: WeatherData = await res.json();
         setWeatherData(data);
@@ -55,8 +55,6 @@ export default function Weather() {
     return <p className="text-red-500">No se pudo cargar el clima.</p>;
   }
 
-  // ---------------
-
   const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
 
@@ -71,8 +69,6 @@ export default function Weather() {
   };
 
   const formattedDate = formatDate(weatherData.location.localtime);
-
-  // -----------------
 
   const temp_c = Math.round(weatherData.current.temp_c);
 
