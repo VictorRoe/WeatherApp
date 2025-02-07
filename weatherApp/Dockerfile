@@ -1,12 +1,11 @@
-FROM ubuntu:latest as BUILD
-RUN apt-get update
-RUN apt-get install openjdk-openjdk -y
-COPY . .
-RUN clean package
-
-# Etapa final
-FROM openjdk:17-slim
+FROM --platform=linux/amd64 maven:3.8.4-openjdk-17 AS build
 WORKDIR /app
-COPY --from=build /app/target/*.jar weather-app.jar
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+FROM --platform=linux/amd64 amazoncorretto:17.0.14-al2023-headful
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app/weather-app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
