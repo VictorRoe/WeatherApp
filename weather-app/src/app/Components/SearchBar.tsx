@@ -31,11 +31,10 @@ type SearchBarProps = {
   onSearch: (data: WeatherData) => void;
 };
 
-export const SearchBar = ({ onSearch }: SearchBarProps) => {
+export const SearchBar = ({}: SearchBarProps) => {
   const [query, setQuery] = useState<string>("");
   const [debouncedQuery, setDebouncedQuery] = useState<string>("");
   const [suggestions, setSuggestions] = useState<SimplifiedPlace[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -73,7 +72,6 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
         return;
       }
 
-      setIsLoading(true);
       const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
         input
       )}&limit=3`;
@@ -86,7 +84,6 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
       } catch (error) {
         console.error("Error obteniendo sugerencias:", error);
       } finally {
-        setIsLoading(false);
       }
     },
     [simplifyPlace]
