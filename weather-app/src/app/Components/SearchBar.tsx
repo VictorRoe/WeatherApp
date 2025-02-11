@@ -18,6 +18,14 @@ type Place = {
   display_name: string;
   lat: string;
   lon: string;
+  address: {
+    city?: string;
+    town?: string;
+    village?: string;
+    state?: string;
+    country?: string;
+    county?: string;
+  };
 };
 
 type SimplifiedPlace = {
@@ -56,11 +64,15 @@ export const SearchBar = ({}: SearchBarProps) => {
   }, []);
 
   const simplifyPlace = useCallback((place: Place): SimplifiedPlace => {
-    const parts = place.display_name.split(", ");
     return {
-      city: parts[0],
-      state: parts[1] || "",
-      country: parts[parts.length - 1],
+      city:
+        place.address.city ||
+        place.address.town ||
+        place.address.village ||
+        place.address.county ||
+        "",
+      state: place.address.state || "",
+      country: place.address.country || "",
       original: place,
     };
   }, []);
@@ -74,7 +86,7 @@ export const SearchBar = ({}: SearchBarProps) => {
 
       const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
         input
-      )}&limit=3`;
+      )}&limit=3&addressdetails=1`;
       try {
         const response = await fetch(url);
         const data: Place[] = await response.json();
@@ -112,14 +124,14 @@ export const SearchBar = ({}: SearchBarProps) => {
 
   return (
     <div ref={searchRef} className="w-full max-w-md mx-auto relative z-10">
-      <div className="relative">
+      <div className="relative z-30">
         <input
           type="text"
           value={query}
           onChange={handleChange}
           onFocus={() => setShowSuggestions(true)}
           placeholder="Which city are you looking for?"
-          className="w-full p-3 sm:p-4 pr-12 rounded-lg bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-70
+          className="w-full p-3 sm:p-4 pr-12 rounded-xl bg-neutral-600 text-white placeholder-white placeholder-opacity-70
              focus:outline-none focus:ring-1 focus:ring-[#FF5E71] transition-all duration-200 ease-out transform text-sm sm:text-base"
         />
         <button
@@ -131,12 +143,12 @@ export const SearchBar = ({}: SearchBarProps) => {
         </button>
       </div>
       {showSuggestions && suggestions.length > 0 && (
-        <ul className="absolute left-0 right-0 bg-[#FF5E71] text-white rounded-b-lg max-h-60 overflow-y-auto z-20">
+        <ul className="absolute left-0 right-0 bg-neutral-600 text-white rounded-b-lg max-h-90 overflow-y-auto z-20 pt-4 top-12">
           {suggestions.map((place, index) => (
             <li
               key={index}
               onClick={() => handleSelect(place)}
-              className="p-2 hover:bg-gray-200 cursor-pointer"
+              className="p-2 hover:bg-neutral-700 cursor-pointer"
             >
               {place.city}, {place.state}, {place.country}
             </li>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Cloud, Wind, Droplets } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface WeatherData {
@@ -28,13 +29,19 @@ interface WeatherData {
 export default function Weather() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const searchParams = useSearchParams();
+  const query = searchParams.get("query");
 
   useEffect(() => {
+    if (!query) {
+      console.error("Error: Query está vacío o es null");
+      return;
+    }
+    const URL = `https://weatherapp-v9yt.onrender.com/weather?query=${query}`;
+
     const fetchWeather = async () => {
       try {
-        const res = await fetch(
-          "https://weatherapp-v9yt.onrender.com/weather?query=La-Ceja-Antioquia"
-        );
+        const res = await fetch(URL);
         const data: WeatherData = await res.json();
         setWeatherData(data);
       } catch (error) {
@@ -45,7 +52,7 @@ export default function Weather() {
     };
 
     fetchWeather();
-  }, []);
+  }, [query]);
 
   if (loading) {
     return <p className="text-white">Cargando clima...</p>;
