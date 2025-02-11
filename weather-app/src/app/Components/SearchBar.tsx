@@ -18,6 +18,14 @@ type Place = {
   display_name: string;
   lat: string;
   lon: string;
+  address: {
+    city?: string;
+    town?: string;
+    village?: string;
+    state?: string;
+    country?: string;
+    county?: string;
+  };
 };
 
 type SimplifiedPlace = {
@@ -56,11 +64,15 @@ export const SearchBar = ({}: SearchBarProps) => {
   }, []);
 
   const simplifyPlace = useCallback((place: Place): SimplifiedPlace => {
-    const parts = place.display_name.split(", ");
     return {
-      city: parts[0],
-      state: parts[1] || "",
-      country: parts[parts.length - 1],
+      city:
+        place.address.city ||
+        place.address.town ||
+        place.address.village ||
+        place.address.county ||
+        "",
+      state: place.address.state || "",
+      country: place.address.country || "",
       original: place,
     };
   }, []);
@@ -74,7 +86,7 @@ export const SearchBar = ({}: SearchBarProps) => {
 
       const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
         input
-      )}&limit=3`;
+      )}&limit=3&addressdetails=1`;
       try {
         const response = await fetch(url);
         const data: Place[] = await response.json();
